@@ -4,15 +4,15 @@ import java.util.Scanner;
 public class Bank25 {
     public static void main(String[] args) {
         
-        Scanner input = new Scanner(System.in);
+        Scanner input25 = new Scanner(System.in);
 
         int jml_tabungan_awal, lama_menabung;
         double prosentase_bunga =0.02,bunga, jml_tabungan_akhir;
 
         System.out.println("masukkan jumlah tabungan awal anda");
-        jml_tabungan_awal = input.nextInt();
+        jml_tabungan_awal = input25.nextInt();
         System.out.println("masukkan lama menabung anda");
-        lama_menabung = input.nextInt();
+        lama_menabung = input25.nextInt();
 
         bunga = lama_menabung * prosentase_bunga * jml_tabungan_awal;
 
