@@ -6,13 +6,19 @@ public class Gaji25 {
         Scanner sc = new Scanner(System.in);
         
         int jmlMasuk, JmlTdkMasuk, TotGaji;
-        int gaji=40000, potGaji=25000;
+        int gaji, potGaji;
 
         System.out.println("Masukkan Jumlah Hari Masuk Kerja Anda: ");
         jmlMasuk=sc.nextInt();
 
         System.out.println("Masukkan Jumlah Hari Tidak Masuk Kerja Anda: ");
         JmlTdkMasuk=sc.nextInt();
+
+        System.out.println("Masukkkan Besaran Gaji Anda: ");
+        gaji=sc.nextInt();
+
+        System.out.println("Masukkan Potongan Gaji Anda: ");
+        potGaji=sc.nextInt();
 
         TotGaji=(jmlMasuk*gaji)-(JmlTdkMasuk*potGaji);
 
