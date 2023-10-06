@@ -35,7 +35,8 @@ public class HargaBayar {
         System.out.println("Jumlah yang harus dibayar: " + bayar);
         System.out.printf("Merek buku yang anda beli adalah %s dengan jumlah halaman %d",merek,jmlhalaman);
 
-
+        sc.close();
+        stringsc.close();
     }
     
 }

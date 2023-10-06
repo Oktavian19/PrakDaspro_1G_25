@@ -16,5 +16,7 @@ public class Lingkaran25 {
 
         System.out.println(keliling);
         System.out.println(luas);
+
+        input.close();
     }
 }

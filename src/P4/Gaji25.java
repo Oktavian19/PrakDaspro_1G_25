@@ -23,5 +23,7 @@ public class Gaji25 {
         TotGaji=(jmlMasuk*gaji)-(JmlTdkMasuk*potGaji);
 
         System.out.println("Gaji yang Anda Terima Sebesar: " + TotGaji);
+
+        sc.close();
     }
 }
