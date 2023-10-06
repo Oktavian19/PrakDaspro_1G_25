@@ -18,8 +18,37 @@ public class PemilihanPercobaan2_25 {
 
         String message = total < 65 ? "Remidi" : "Tidak remidi";
 
-        System.out.println("Nilai akhir = " + total + " sehingga " + message);
+        System.out.print("Nilai akhir = " + total + " dengan Nilai huruf = ");
 
+        if (total<=100 && total>80) {
+            System.out.println("A");
+        } 
+
+        else if (total<=80 && total>73) {
+            System.out.println("B+");
+        }
+
+        else if (total<=73 && total>65) {
+            System.out.println("B");
+        }
+
+        else if (total<=65 && total>60) {
+            System.out.println("C+");
+        }
+
+        else if (total<=60 && total>50) {
+            System.out.println("C");
+        }
+
+        else if (total<=50 && total>39) {
+            System.out.println("D");
+        }
+
+        else if (total<=80 && total>73) {
+            System.out.println("E");
+        }
+
+        System.out.println("sehingga " + message);
         input25.close();
     }
 }
