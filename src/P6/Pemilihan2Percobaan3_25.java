@@ -42,5 +42,7 @@ public class Pemilihan2Percobaan3_25 {
         } else {
             System.out.println("Masukkan kategori salah");
         }
+        input25.close();
+        input25String.close();
     }
 }
