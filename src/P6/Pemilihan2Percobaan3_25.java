@@ -10,9 +10,9 @@ public class Pemilihan2Percobaan3_25 {
         int penghasilan, gajiBersih;
         double pajak = 0;
 
-        System.out.println("Masukkan kategori : ");
+        System.out.print("Masukkan kategori : ");
         kategori = input25String.nextLine();
-        System.out.println("Masukkan besarnya penghasilan : ");
+        System.out.print("Masukkan besarnya penghasilan : ");
         penghasilan = input25.nextInt();
 
         if (kategori.equalsIgnoreCase("pekerja")){
@@ -21,27 +21,21 @@ public class Pemilihan2Percobaan3_25 {
             }
             else if (penghasilan <= 3000000) {
                 pajak = 0.15;
-            }
-            else {
-                pajak = 0.2;
-            }
-            gajiBersih = (int) (penghasilan - (pajak * penghasilan));
-            System.out.println("Penghasil Bersih : " + gajiBersih);
-        } else if (kategori.equalsIgnoreCase("pebisnis")){
+            } else {pajak = 0.2;}
+        } 
+        
+        else if (kategori.equalsIgnoreCase("pebisnis")){
             if (penghasilan <= 2500000) {
                 pajak = 0.15;
             }
             else if (penghasilan <= 3500000){
                 pajak = 0.2;
-            }
-            else {
-                pajak = 0.25;
-            }
-            gajiBersih = (int)(penghasilan- (pajak*penghasilan));
-            System.out.println("Penghasil Bersih : " + gajiBersih);
-        } else {
-            System.out.println("Masukkan kategori salah");
-        }
+            } else {pajak = 0.25;}
+        } else {System.out.println("Masukkan kategori salah");}
+
+        gajiBersih = (int)(penghasilan- (pajak*penghasilan));
+        System.out.println("Penghasil Bersih : " + gajiBersih);
+
         input25.close();
         input25String.close();
     }
