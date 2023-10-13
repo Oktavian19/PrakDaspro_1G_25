@@ -1,7 +1,7 @@
 package P7;
 import java.util.Scanner;
 
-public class ForKelipatan_25 {
+public class WhileKelipatan_25 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -10,11 +10,19 @@ public class ForKelipatan_25 {
         System.out.print("Masukkan bilangan kelipatan (1-9): ");
         kelipatan = scan.nextInt();
 
-        for (int i = 1; i <= 50; i++) {
+        // for (int i = 1; i <= 50; i++) {
+        //     if (i % kelipatan == 0) {
+        //         jumlah += i;
+        //         counter++;
+        //     }
+        // }
+        int i = 1;
+        while (i <=50) {
             if (i % kelipatan == 0) {
                 jumlah += i;
                 counter++;
             }
+        i++;
         }
         System.out.printf("Banyaknya bilangan %d dari 1 sampai 50 adalah %d\n", kelipatan, counter);
         System.out.printf("Total bilangan kelipatan %d dari 1 sampai 50 adalah %d\n", kelipatan, jumlah);
