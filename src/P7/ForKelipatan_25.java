@@ -17,6 +17,8 @@ public class ForKelipatan_25 {
             }
         }
         System.out.printf("Banyaknya bilangan %d dari 1 sampai 50 adalah %d\n", kelipatan, counter);
-        System.out.printf("Total bilangan kelipatan %d dari 1 samapi 50 adalah %d\n", kelipatan, jumlah);
+        System.out.printf("Total bilangan kelipatan %d dari 1 sampai 50 adalah %d\n", kelipatan, jumlah);
+        float ratarata = (float)jumlah/counter;
+        System.out.printf("Rata-rata jumlah bilangan kelipatan %d dari 1 sampai 50 adalah %.1f\n", kelipatan, ratarata);
     }
 }
