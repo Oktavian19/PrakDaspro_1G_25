@@ -12,6 +12,12 @@ public class BioskopWithScanner25 {
 
         String[][] penonton = new String[4][2];
 
+        for (int i = 0; i < penonton.length; i++) {
+            for (int j = 0; j < penonton[i].length; j++) {
+                penonton[i][j] = "***";
+            }
+        }
+
         while (true) {
            System.out.println("1. Input data penonton");
            System.out.println("2. Tampilkan daftar penonton");
@@ -40,7 +46,7 @@ public class BioskopWithScanner25 {
                     }
                     if(skip) continue;
 
-                    if (penonton[baris-1][kolom-1] != null) {
+                    if (penonton[baris-1][kolom-1] != "***") {
                         System.out.println("Kursi yang anda pilih telah terisi!\n");
                         skip = true;
                     }
@@ -60,16 +66,14 @@ public class BioskopWithScanner25 {
                 break;
 
             case 2:
-                while (true) {
-                    for (int i = 0; i < penonton.length; i++) {
-                        for (int j = 0; j < penonton[i].length; j++) {
-                            System.out.printf("%s\t", penonton[i][j]);
-                        }
-                        System.out.println();
+                System.out.println();
+                for (int i = 0; i < penonton.length; i++) {
+                    for (int j = 0; j < penonton[i].length; j++) {
+                        System.out.printf("%s\t", penonton[i][j]);
                     }
-                    next = scStr25.nextLine();
-                    break;
+                    System.out.println();
                 }
+                next = scStr25.nextLine();
                 break;
             
             case 3:
