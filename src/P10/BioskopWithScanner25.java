@@ -22,6 +22,8 @@ public class BioskopWithScanner25 {
            switch (pilih) {
             case 1:
                 while (true) {
+                    boolean skip = false;
+
                     System.out.print("Masukkan nama: ");
                     nama = scStr25.nextLine();
                     System.out.print("Masukkan baris: ");
@@ -29,10 +31,21 @@ public class BioskopWithScanner25 {
                     System.out.print("Masukkan kolom: ");
                     kolom = sc25.nextInt();
 
-                    if(baris > penonton.length || kolom > penonton[0].length){
-                        System.out.println("\nBaris/Kolom anda tidak tersedia!\n");
-                        continue;
+                    for (int i = 0; i < penonton.length; i++) {
+                        if(baris > penonton.length || kolom > penonton[i].length){
+                            System.out.println("\nBaris/Kolom anda tidak tersedia!\n");
+                            skip = true;
+                            break;
+                        }
                     }
+                    if(skip) continue;
+
+                    if (penonton[baris-1][kolom-1] != null) {
+                        System.out.println("Kursi yang anda pilih telah terisi!\n");
+                        skip = true;
+                    }
+
+                    if(skip) continue;
 
                     penonton[baris-1][kolom-1] = nama;
 
@@ -42,6 +55,7 @@ public class BioskopWithScanner25 {
                     if (next.equalsIgnoreCase("n")) {
                         break;
                     }
+                    System.out.println();
                 }//menu 1
                 break;
 
