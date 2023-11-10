@@ -13,11 +13,11 @@ public class BioskopWithScanner25 {
         String[][] penonton = new String[4][2];
 
         while (true) {
-           System.out.println("Pilih menu :"); 
            System.out.println("1. Input data penonton");
            System.out.println("2. Tampilkan daftar penonton");
            System.out.println("3. Exit");
 
+           System.out.print("Pilih menu :"); 
            pilih = sc25.nextInt();
            switch (pilih) {
             case 1:
@@ -28,6 +28,11 @@ public class BioskopWithScanner25 {
                     baris = sc25.nextInt();
                     System.out.print("Masukkan kolom: ");
                     kolom = sc25.nextInt();
+
+                    if(baris > penonton.length || kolom > penonton[0].length){
+                        System.out.println("\nBaris/Kolom anda tidak tersedia!\n");
+                        continue;
+                    }
 
                     penonton[baris-1][kolom-1] = nama;
 
@@ -63,5 +68,7 @@ public class BioskopWithScanner25 {
             }//switch menu
             if(quit) break;
         }//menu awal
+        sc25.close();
+        scStr25.close();
     }//main
 }
