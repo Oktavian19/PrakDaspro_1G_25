@@ -18,11 +18,19 @@ public class NestedLoop_2341720117 {
 
         int i = 0;
         for (Double kota[] : temps) {
+            Double jml= 0.0, rerata;
+
             System.out.println("Kota ke-" + (i + 1) + ": ");
             for (Double suhu : kota) {
                 System.out.print(suhu + " ");
             }
-            System.out.println();
+
+            for (int j = 0; j < temps[i].length; j++) {
+                jml += temps[i][j];
+            }
+
+            rerata = jml/temps[i].length;
+            System.out.printf("\nRata-rata suhu : %.2f\n\n", rerata);
             i++;
         }
 
