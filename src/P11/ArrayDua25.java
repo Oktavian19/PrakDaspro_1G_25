@@ -84,6 +84,8 @@ public class ArrayDua25 {
             System.out.print(data[i][2] + " ");
         }
 
+        System.out.println("Nilai maksimum index UV: " + max[3]);
+
         scan.close();
     }//main
 }
