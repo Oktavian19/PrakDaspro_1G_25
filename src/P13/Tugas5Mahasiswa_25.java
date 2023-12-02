@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class Tugas5Mahasiswa_25 {
     static Scanner sc = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
 
-    static void inputNilai(int[][] arr) {
+    static void inputNilai(int[][] arr, String[] nama) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 System.out.printf("Masukkan nilai mahasiswa ke-%d pada minggu ke-%d: ", i + 1, j + 1);
@@ -16,21 +17,27 @@ public class Tugas5Mahasiswa_25 {
 
     static void tampilSeluruh(int[][] arr, String[] nama) {
         String[][] arrString = arrayIntToStrings(arr);
-        tableLine(arr);
-        System.out.print("| Nama ");
+        int padding = cekKolomNama(nama);
+        tableLine(arr, nama);
+        System.out.print(
+                "|" + " ".repeat((padding - 4) / 2) + "Nama" + " ".repeat((padding - 4) / 2));
         for (int i = 0; i < arrString[0].length; i++) {
             System.out.print("| Minggu ke-" + (i + 1) + " ");
         }
         System.out.println("|");
-        tableLine(arr);
+        tableLine(arr, nama);
         for (int i = 0; i < arrString.length; i++) {
-            System.out.printf("| %s |", nama[i]);
+            if (nama[i].length() % 2 != 0) {
+                nama[i] = String.format("%s ", nama[i]);
+            }
+            System.out.print("|" + " ".repeat((padding - nama[i].length()) / 2) + nama[i]
+                    + " ".repeat((padding - nama[i].length()) / 2) + "|");
             for (int j = 0; j < arrString[i].length; j++) {
                 System.out.print(" ".repeat(5) + arrString[i][j] + " ".repeat(8 - arrString[i][j].length()) + "|");
             }
             System.out.println();
         }
-        tableLine(arr);
+        tableLine(arr, nama);
         System.out.println();
     }
 
@@ -63,17 +70,27 @@ public class Tugas5Mahasiswa_25 {
     }
 
     public static void main(String[] args) {
-        int[][] dataNilai = new int[5][7];
-        String[] namaMhs = { "Sari", "Rina", "Yani", "Dwi ", "Lusi" };
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jmlMhs = input.nextInt();
+        String[] namaMhs = new String[jmlMhs];
 
-        inputNilai(dataNilai);
+        for (int i = 0; i < namaMhs.length; i++) {
+            System.out.printf("Masukkan nama mahasiswa ke-%d: ", i + 1);
+            namaMhs[i] = sc.nextLine();
+        }
+
+        System.out.print("Masukkkan jumlah tugas: ");
+        int jmlTgs = input.nextInt();
+        int[][] dataNilai = new int[jmlMhs][jmlTgs];
+
+        inputNilai(dataNilai, namaMhs);
         tampilSeluruh(dataNilai, namaMhs);
         int[] nilaiTinggiHari = hariTinggi(dataNilai);
         for (int i = 0; i < dataNilai.length; i++) {
             System.out.printf("Nilai tertinggi %s ada pada hari ke-%d\n", namaMhs[i], nilaiTinggiHari[i]);
         }
         int[] nilaiTinggiSeluruh = nilaiTinggi(dataNilai);
-        System.out.printf("\nMahasiswa yang memiliki nilai tertinggi adalah %ssebesar %d pada minggu ke-%d",
+        System.out.printf("\nMahasiswa yang memiliki nilai tertinggi adalah %s sebesar %d pada minggu ke-%d",
                 namaMhs[nilaiTinggiSeluruh[1]], nilaiTinggiSeluruh[0], nilaiTinggiSeluruh[2]);
     }
 
@@ -87,11 +104,24 @@ public class Tugas5Mahasiswa_25 {
         return hasil;
     }
 
-    static void tableLine(int[][] arr) {
-        System.out.printf("+" + "-".repeat(6) + "+");
+    static void tableLine(int[][] arr, String[] nama) {
+        System.out.printf("+" + "-".repeat(cekKolomNama(nama)) + "+");
         for (int i = 0; i < arr[0].length; i++) {
             System.out.print("-".repeat(13) + "+");
         }
         System.out.println();
+    }
+
+    static int cekKolomNama(String[] nama) {
+        int maks = 0;
+        for (int i = 0; i < nama.length; i++) {
+            if (nama[i].length() > maks) {
+                maks = nama[i].length();
+            }
+        }
+        if (maks % 2 != 0) {
+            maks += 1;
+        }
+        return maks + 4;
     }
 }
